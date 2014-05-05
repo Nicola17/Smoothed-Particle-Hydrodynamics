@@ -51,6 +51,7 @@ public:
 	//TODO helper functions delete after fix!!
 	float * getElasticConnectionsData_cpp() { return elasticConnectionsData_cpp; };
 	int   * getMembraneData_cpp() { return membraneData_cpp; };
+	const int   * getParticleMembraneList_cpp(){ return particleMembranesList_cpp; };
 	double  simulationStep(const bool load_to = false);
 
 private:

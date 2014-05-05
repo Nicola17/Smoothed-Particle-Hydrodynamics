@@ -108,7 +108,7 @@ owOpenCLSolver::owOpenCLSolver(const float * position_cpp, const float * velocit
 				copy_buffer_to_device( particleMembranesList_cpp, particleMembranesList, numOfElasticP * MAX_MEMBRANES_INCLUDING_SAME_PARTICLE * sizeof( int ) );
 			}
 
-			if(particleMembranesList_cpp) delete [] particleMembranesList_cpp;
+			//if(particleMembranesList_cpp) delete [] particleMembranesList_cpp;
 		}
 		//elastic connections
 		if(elasticConnectionsData_cpp != NULL){

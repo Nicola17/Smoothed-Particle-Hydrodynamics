@@ -936,6 +936,9 @@ void run(int argc, char** argv, const bool with_graphics, const bool load_to)
 	helper = new owHelper();
 	if(!load_from_file){
 		fluid_simulation = new owPhysicsFluidSimulator(helper);
+		owHelper::log_buffer(fluid_simulation->getMembraneData_cpp(),3,numOfMembranes,"./logs/membranes.txt");
+		const int * mi = fluid_simulation->getParticleMembraneList_cpp();
+		owHelper::log_buffer(mi,1,numOfElasticP*MAX_MEMBRANES_INCLUDING_SAME_PARTICLE,"./logs/membranesIndexes.txt");
 	}
 	else{
 		muscle_activation_signal_cpp = new float [MUSCLE_COUNT];
