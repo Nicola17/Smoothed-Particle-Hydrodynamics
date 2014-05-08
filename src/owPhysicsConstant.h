@@ -38,6 +38,9 @@
 #include <math.h>
 
 #define generateWormBodyConfiguration 0 //or load from file otherwise [0/1]
+//SPECIFIC CONST
+#define RUN_MEMBRANES_METHODS 0
+//
 
 #ifndef M_PI
 #define M_PI 3.1415927f

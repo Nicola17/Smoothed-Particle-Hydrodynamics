@@ -141,14 +141,15 @@ double owPhysicsFluidSimulator::simulationStep(const bool load_to)
 		}while( iter < maxIteration );
 
 		ocl_solver->_run_pcisph_integrate(iterationCount);			helper->watch_report("_runPCISPH: \t\t%9.3f ms\t3 iteration(s)\n");
+#if RUN_MEMBRANES_METHODS
 		//Handling of Interaction with membranes
 		ocl_solver->_run_clearMembraneBuffers();
 		ocl_solver->_run_computeInteractionWithMembranes();
 		// compute change of coordinates due to interactions with membranes
 		ocl_solver->_run_computeInteractionWithMembranes_finalize();
 		//END
+#endif
 		ocl_solver->read_position_buffer(position_cpp);				helper->watch_report("_readBuffer: \t\t%9.3f ms\n"); 
-
 		//END PCISPH algorithm
 		printf("------------------------------------\n");
 		printf("_Total_step_time:\t%9.3f ms\n",helper->get_elapsedTime());
